@@ -10,27 +10,73 @@ html {
 
 body {
   overflow-x: hidden;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default App centering */
+.App {
+  min-height: 100vh;
 }
 
 /* Smooth transitions for interactive elements */
 button, a {
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.3s ease, color 0.2s ease;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D3FF62;
-  border-radius: 5px;
+  background: #FACC15;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8e055;
+  background: #FDE047;
+}
+
+/* Selection */
+::selection {
+  background: #FACC15;
+  color: #000;
+}
+
+::-moz-selection {
+  background: #FACC15;
+  color: #000;
+}
+
+/* Prevent flash of unstyled content */
+.App {
+  opacity: 1;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sharp, modern aesthetic */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* Ensure buttons have no border radius by default */
+button {
+  border-radius: 0 !important;
 }
