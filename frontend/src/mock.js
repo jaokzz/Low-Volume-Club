@@ -1,14 +1,14 @@
-// Mock data para Low Volume Club - Alex Liprevi
+// Mock data para Low Volume Club - Alex Lipreri
 
 export const clubInfo = {
   name: "LOW VOLUME CLUB",
-  tagline: "Alex Liprevi",
+  tagline: "Alex Lipreri",
   headline: "Treine menos. Evolua mais.",
   subheadline: "A única metodologia que combina ciência, intensidade e eficiência para transformar seu corpo em menos tempo.",
   description: "Low Volume é uma abordagem revolucionária de treinamento que prioriza qualidade sobre quantidade. Através de alta intensidade, progressão estratégica de carga e recuperação adequada, você alcança resultados superiores em menos tempo.",
-  whatsapp: "https://wa.me/5511999999999",
-  instagram: "https://instagram.com/alexliprevi",
-  checkoutLink: "https://checkout.kiwify.com.br/exemplo"
+  whatsapp: "https://wa.me/554991353593",
+  instagram: "https://www.instagram.com/alex_lipreri/",
+  checkoutLink: "https://checkout.kiwify.com.br/"
 };
 
 export const metodoPrincipios = [
