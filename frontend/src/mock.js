@@ -1,33 +1,71 @@
-// Mock data para o site Alex Liprevi
+// Mock data para Low Volume Club - Alex Liprevi
 
-export const trainerInfo = {
-  name: "Alex Liprevi",
+export const clubInfo = {
+  name: "LOW VOLUME CLUB",
+  tagline: "Alex Liprevi",
   headline: "Treine menos. Evolua mais.",
-  subheadline: "O único método que combina ciência, intensidade e eficiência para transformar seu corpo em menos tempo.",
-  about: "Personal trainer profissional especializado em treinamento de alta performance. Com mais de 10 anos de experiência, desenvolvi o método Low Volume que revoluciona a forma como você treina.",
-  experience: "10+ anos",
-  clients: "500+",
-  results: "95%",
+  subheadline: "A única metodologia que combina ciência, intensidade e eficiência para transformar seu corpo em menos tempo.",
+  description: "Low Volume é uma abordagem revolucionária de treinamento que prioriza qualidade sobre quantidade. Através de alta intensidade, progressão estratégica de carga e recuperação adequada, você alcança resultados superiores em menos tempo.",
   whatsapp: "https://wa.me/5511999999999",
   instagram: "https://instagram.com/alexliprevi",
   checkoutLink: "https://checkout.kiwify.com.br/exemplo"
 };
 
-export const metodoBeneficios = [
+export const metodoPrincipios = [
   {
-    title: "Menos Volume, Mais Intensidade",
-    description: "Treinos mais curtos e focados que geram resultados superiores aos métodos tradicionais.",
-    icon: "Zap"
+    title: "Alta Intensidade",
+    description: "Cada repetição conta. Foco máximo em execução perfeita com cargas progressivas.",
+    icon: "Zap",
+    category: "Prioridade"
   },
   {
-    title: "Otimização de Tempo",
-    description: "Perfeito para quem tem rotina corrida. Máximo resultado em 45 minutos por sessão.",
-    icon: "Clock"
+    title: "Progressão de Carga",
+    description: "Sistema estruturado de evolução constante, garantindo ganhos contínuos.",
+    icon: "TrendingUp",
+    category: "Prioridade"
   },
   {
-    title: "Resultados Comprovados",
-    description: "Baseado em estudos científicos e validado por centenas de alunos transformados.",
-    icon: "Award"
+    title: "Recuperação Otimizada",
+    description: "Descanso estratégico para máxima síntese proteica e ganho muscular.",
+    icon: "Activity",
+    category: "Prioridade"
+  },
+  {
+    title: "Exercícios Estratégicos",
+    description: "Seleção científica de movimentos para máxima ativação muscular.",
+    icon: "Target",
+    category: "Organização"
+  },
+  {
+    title: "Séries & Repetições Definidas",
+    description: "Protocolo preciso adaptado ao seu nível e objetivo específico.",
+    icon: "ListChecks",
+    category: "Organização"
+  },
+  {
+    title: "Ênfase no Grupamento Foco",
+    description: "Priorização inteligente de grupos musculares para resultados acelerados.",
+    icon: "Focus",
+    category: "Organização"
+  }
+];
+
+export const focoTecnico = [
+  {
+    label: "Técnica Impecável",
+    description: "Execução perfeita em cada movimento para máximos ganhos e zero lesões."
+  },
+  {
+    label: "Amplitude Completa",
+    description: "ROM total para ativação muscular completa e desenvolvimento uniforme."
+  },
+  {
+    label: "Conexão Mente-Músculo",
+    description: "Consciência corporal elevada para potencializar cada contração."
+  },
+  {
+    label: "Intensidade Moderada/Baixa",
+    description: "RPE controlado para sustentabilidade e longevidade no treinamento."
   }
 ];
 
@@ -46,7 +84,7 @@ export const resultados = [
   },
   {
     metric: "6-12",
-    label: "Semanas para resultados visíveis"
+    label: "Semanas para resultados"
   }
 ];
 
@@ -54,19 +92,19 @@ export const mockTestimonials = [
   {
     id: "1",
     name: "Carlos Silva",
-    comment: "Em 8 semanas com o método Low Volume consegui resultados que levei 6 meses para alcançar com treinos tradicionais. Impressionante!",
+    comment: "Em 8 semanas com o Low Volume Club consegui resultados que levei 6 meses para alcançar com treinos tradicionais. A metodologia é impressionante!",
     date: "2024-12-15"
   },
   {
     id: "2",
     name: "Marina Santos",
-    comment: "Como mãe e empresária, não tinha tempo para treinos longos. O método do Alex mudou minha vida. Treino 3x por semana e estou em melhor forma que aos 20 anos.",
+    comment: "Como mãe e empresária, não tinha tempo para treinos longos. O método do Alex mudou minha vida. Treino 3x por semana e estou em melhor forma que nunca.",
     date: "2024-12-10"
   },
   {
     id: "3",
     name: "Roberto Mendes",
-    comment: "Profissional sério, metodologia comprovada. Perdi 15kg em 4 meses mantendo massa muscular. Recomendo!",
+    comment: "Profissional sério, metodologia comprovada. Perdi 15kg em 4 meses mantendo massa muscular. Low Volume Club é o futuro do treinamento!",
     date: "2024-12-01"
   }
 ];

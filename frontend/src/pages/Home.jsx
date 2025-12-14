@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Clock, Award, Instagram, MessageCircle, ShoppingCart, Star, Send, CheckCircle } from 'lucide-react';
+import { Zap, TrendingUp, Activity, Target, ListChecks, Focus, Instagram, MessageCircle, ShoppingCart, Star, Send, CheckCircle, ChevronDown, Play } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-import { trainerInfo, metodoBeneficios, resultados, mockTestimonials } from '../mock';
+import { clubInfo, metodoPrincipios, focoTecnico, resultados, mockTestimonials } from '../mock';
+import './animations.css';
 
 const Home = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [newTestimonial, setNewTestimonial] = useState({ name: '', comment: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    // Carregar depoimentos mockados
     setTestimonials(mockTestimonials);
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleSubmitTestimonial = async (e) => {
     e.preventDefault();
-    if (!newTestimonial.name.trim() || !newTestimonial.comment.trim()) {
-      return;
-    }
+    if (!newTestimonial.name.trim() || !newTestimonial.comment.trim()) return;
 
     setIsSubmitting(true);
     
-    // Simulação de envio (será substituído por chamada real ao backend)
     setTimeout(() => {
       const newTest = {
         id: Date.now().toString(),
@@ -47,264 +52,320 @@ const Home = () => {
     document.getElementById('checkout-section').scrollIntoView({ behavior: 'smooth' });
   };
 
+  const iconMap = {
+    Zap: Zap,
+    TrendingUp: TrendingUp,
+    Activity: Activity,
+    Target: Target,
+    ListChecks: ListChecks,
+    Focus: Focus
+  };
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Header */}
-      <header className="fixed top-8 left-0 right-0 z-50 px-3">
-        <div className="max-w-7xl mx-auto">
-          <nav className="bg-[#1a1a2e] rounded-[25px] px-6 py-4 shadow-2xl backdrop-blur-sm bg-opacity-95">
-            <div className="flex items-center justify-between">
-              <div className="text-xl font-bold tracking-tight">
-                <span className="text-[#D3FF62]">ALEX</span> LIPREVI
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-yellow-400/20">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <nav className="flex items-center justify-between">
+            <div className="flex flex-col">
+              <div className="text-2xl font-black tracking-tighter text-yellow-400">
+                LOW VOLUME CLUB
               </div>
-              
-              <div className="hidden md:flex items-center gap-8">
-                <a href="#sobre" className="text-sm font-medium hover:text-[#D3FF62] transition-colors">Sobre</a>
-                <a href="#metodo" className="text-sm font-medium hover:text-[#D3FF62] transition-colors">Método</a>
-                <a href="#resultados" className="text-sm font-medium hover:text-[#D3FF62] transition-colors">Resultados</a>
-                <a href="#depoimentos" className="text-sm font-medium hover:text-[#D3FF62] transition-colors">Depoimentos</a>
-                <Button 
-                  onClick={scrollToCheckout}
-                  className="bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[25px] px-6 font-semibold"
-                >
-                  Começar Agora
-                </Button>
-              </div>
-              
+              <div className="text-xs text-white/60 tracking-wider">BY ALEX LIPREVI</div>
+            </div>
+            
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#metodo" className="text-sm font-semibold text-white/80 hover:text-yellow-400 transition-colors">Método</a>
+              <a href="#principios" className="text-sm font-semibold text-white/80 hover:text-yellow-400 transition-colors">Princípios</a>
+              <a href="#resultados" className="text-sm font-semibold text-white/80 hover:text-yellow-400 transition-colors">Resultados</a>
+              <a href="#depoimentos" className="text-sm font-semibold text-white/80 hover:text-yellow-400 transition-colors">Depoimentos</a>
               <Button 
                 onClick={scrollToCheckout}
-                className="md:hidden bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[25px] px-4 text-sm font-semibold"
+                className="bg-yellow-400 text-black hover:bg-yellow-300 font-black px-6 rounded-none shadow-lg shadow-yellow-400/20 hover:shadow-yellow-400/40 transition-all"
               >
-                Começar
+                COMEÇAR AGORA
               </Button>
             </div>
+            
+            <Button 
+              onClick={scrollToCheckout}
+              className="md:hidden bg-yellow-400 text-black hover:bg-yellow-300 font-black px-4 text-sm rounded-none"
+            >
+              COMEÇAR
+            </Button>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-        <div className="absolute top-20 right-0 w-96 h-96 bg-[#D3FF62]/10 rounded-full blur-3xl"></div>
+      <section className="relative min-h-screen flex items-center justify-center pt-20 px-4">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="hex-pattern"></div>
+          <div 
+            className="absolute top-1/4 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl animate-pulse-slow"
+            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+          ></div>
+          <div 
+            className="absolute bottom-1/4 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl animate-pulse-slower"
+            style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+          ></div>
+        </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center space-y-8">
-            <div className="inline-block px-4 py-2 bg-purple-600/20 rounded-full border border-purple-500/30 mb-4">
-              <span className="text-sm font-medium text-purple-300">Método Low Volume</span>
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
+          <div className="mb-8 animate-fade-in-up">
+            <div className="inline-block px-6 py-2 border border-yellow-400/30 mb-6">
+              <span className="text-sm font-bold text-yellow-400 tracking-widest">METODOLOGIA REVOLUCIONÁRIA</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              {trainerInfo.headline}
+            <h1 className="text-6xl md:text-8xl font-black leading-none mb-6 tracking-tighter">
+              <span className="text-white">TREINE</span>{' '}
+              <span className="text-yellow-400 glow-text">MENOS</span>
+              <br />
+              <span className="text-white">EVOLUA</span>{' '}
+              <span className="text-yellow-400 glow-text">MAIS</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              {trainerInfo.subheadline}
+            <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-12 animate-fade-in-up animation-delay-200">
+              {clubInfo.subheadline}
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-400">
               <Button 
                 onClick={scrollToCheckout}
-                className="bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[25px] px-8 py-6 text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+                className="bg-yellow-400 text-black hover:bg-yellow-300 font-black px-10 py-7 text-lg rounded-none shadow-2xl shadow-yellow-400/30 hover:shadow-yellow-400/50 hover:scale-105 transition-all group"
               >
-                Conheça o Método
+                <Play className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                CONHECER O MÉTODO
               </Button>
               
-              <a href={trainerInfo.whatsapp} target="_blank" rel="noopener noreferrer">
+              <a href={clubInfo.whatsapp} target="_blank" rel="noopener noreferrer">
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white/30 text-white hover:bg-white/10 rounded-[25px] px-8 py-6 text-lg font-semibold"
+                  className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-10 py-7 text-lg rounded-none transition-all"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Falar no WhatsApp
+                  FALAR NO WHATSAPP
                 </Button>
               </a>
             </div>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow">
+            <ChevronDown className="h-8 w-8 text-yellow-400" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="bg-yellow-400 py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {resultados.map((resultado, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl font-black text-black mb-2">{resultado.metric}</div>
+                <div className="text-sm font-semibold text-black/70 uppercase tracking-wide">{resultado.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre o Método */}
+      <section id="metodo" className="py-32 px-4 bg-black relative">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <div className="text-yellow-400 font-bold text-sm tracking-widest mb-4">O MÉTODO</div>
+                <h2 className="text-5xl md:text-6xl font-black leading-tight mb-6">
+                  LOW VOLUME<br />
+                  <span className="text-yellow-400">É DIFERENTE</span>
+                </h2>
+                <div className="w-20 h-1 bg-yellow-400"></div>
+              </div>
+              
+              <p className="text-lg text-white/70 leading-relaxed">
+                {clubInfo.description}
+              </p>
+              
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-white">Abordagem Principal:</h3>
+                <div className="border-l-4 border-yellow-400 pl-6">
+                  <p className="text-white/80 text-lg font-semibold">Alta intensidade + Progressão de carga + Boa recuperação</p>
+                </div>
+              </div>
+              
+              <Button 
+                onClick={scrollToCheckout}
+                className="bg-white text-black hover:bg-yellow-400 hover:text-black font-black px-8 py-6 text-lg rounded-none transition-all"
+              >
+                QUERO FAZER PARTE
+              </Button>
+            </div>
             
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-16 max-w-3xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-[#D3FF62] mb-2">{trainerInfo.experience}</div>
-                <div className="text-sm text-gray-400">De experiência</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-[#D3FF62] mb-2">{trainerInfo.clients}</div>
-                <div className="text-sm text-gray-400">Alunos transformados</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-[#D3FF62] mb-2">{trainerInfo.results}</div>
-                <div className="text-sm text-gray-400">Taxa de sucesso</div>
+            <div className="relative">
+              <div className="aspect-square bg-gradient-to-br from-yellow-400/10 to-transparent border border-yellow-400/20 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="text-9xl font-black text-yellow-400/20">LV</div>
+                  <div className="text-sm text-white/40 mt-4">[Espaço para imagem/vídeo do método]</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sobre Section */}
-      <section id="sobre" className="py-20 px-4 bg-[#12121a]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Quem é <span className="text-[#D3FF62]">Alex Liprevi</span></h2>
-            <div className="w-20 h-1 bg-[#D3FF62] mx-auto"></div>
+      {/* Princípios */}
+      <section id="principios" className="py-32 px-4 bg-zinc-950 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="text-yellow-400 font-bold text-sm tracking-widest mb-4">FUNDAMENTOS</div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6">
+              OS <span className="text-yellow-400">PRINCÍPIOS</span>
+            </h2>
+            <div className="w-20 h-1 bg-yellow-400 mx-auto"></div>
           </div>
           
-          <Card className="bg-[#1a1a2e] border-purple-500/20 rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <div className="w-full h-80 bg-gradient-to-br from-purple-600/20 to-[#D3FF62]/10 rounded-2xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl font-bold text-[#D3FF62] mb-2">AL</div>
-                      <div className="text-sm text-gray-400">[Foto do treinador aqui]</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-6">
-                  <h3 className="text-3xl font-bold">Autoridade em Alta Performance</h3>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    {trainerInfo.about}
-                  </p>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    [Adicione aqui mais informações sobre formação, certificações e diferenciais do Alex]
-                  </p>
-                  
-                  <div className="flex gap-4 pt-4">
-                    <a href={trainerInfo.instagram} target="_blank" rel="noopener noreferrer">
-                      <Button className="bg-purple-600 hover:bg-purple-700 rounded-[25px] px-6">
-                        <Instagram className="mr-2 h-5 w-5" />
-                        Seguir no Instagram
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Prioridades */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-8 uppercase tracking-wider">→ Prioridades</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {metodoPrincipios.filter(p => p.category === 'Prioridade').map((principio, index) => {
+                const IconComponent = iconMap[principio.icon];
+                return (
+                  <Card key={index} className="bg-black border-yellow-400/20 hover:border-yellow-400 transition-all group hover:-translate-y-2 rounded-none">
+                    <CardContent className="p-8">
+                      <div className="w-16 h-16 bg-yellow-400/10 flex items-center justify-center mb-6 group-hover:bg-yellow-400/20 transition-colors">
+                        <IconComponent className="h-8 w-8 text-yellow-400" />
+                      </div>
+                      <h3 className="text-2xl font-black mb-4 text-white">{principio.title}</h3>
+                      <p className="text-white/60 leading-relaxed">{principio.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* Organização */}
+          <div>
+            <h3 className="text-2xl font-bold text-yellow-400 mb-8 uppercase tracking-wider">→ Organização</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {metodoPrincipios.filter(p => p.category === 'Organização').map((principio, index) => {
+                const IconComponent = iconMap[principio.icon];
+                return (
+                  <Card key={index} className="bg-black border-yellow-400/20 hover:border-yellow-400 transition-all group hover:-translate-y-2 rounded-none">
+                    <CardContent className="p-8">
+                      <div className="w-16 h-16 bg-yellow-400/10 flex items-center justify-center mb-6 group-hover:bg-yellow-400/20 transition-colors">
+                        <IconComponent className="h-8 w-8 text-yellow-400" />
+                      </div>
+                      <h3 className="text-2xl font-black mb-4 text-white">{principio.title}</h3>
+                      <p className="text-white/60 leading-relaxed">{principio.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Método Low Volume Section */}
-      <section id="metodo" className="py-20 px-4">
+      {/* Foco Técnico */}
+      <section className="py-32 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Método <span className="text-[#D3FF62]">Low Volume</span></h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              [Adicione aqui a explicação completa do método Low Volume - princípios, base científica e diferenciais]
-            </p>
-            <div className="w-20 h-1 bg-[#D3FF62] mx-auto mt-6"></div>
+          <div className="text-center mb-20">
+            <div className="text-yellow-400 font-bold text-sm tracking-widest mb-4">EXECUÇÃO</div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6">
+              FOCO EM <span className="text-yellow-400">QUALIDADE</span>
+            </h2>
+            <div className="w-20 h-1 bg-yellow-400 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {metodoBeneficios.map((beneficio, index) => {
-              const IconComponent = beneficio.icon === 'Zap' ? Zap : beneficio.icon === 'Clock' ? Clock : Award;
-              
-              return (
-                <Card key={index} className="bg-[#1a1a2e] border-purple-500/20 rounded-3xl hover:border-[#D3FF62]/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
-                  <CardContent className="p-8 text-center space-y-4">
-                    <div className="w-16 h-16 bg-[#D3FF62]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="h-8 w-8 text-[#D3FF62]" />
+          <div className="grid md:grid-cols-2 gap-8">
+            {focoTecnico.map((foco, index) => (
+              <Card key={index} className="bg-zinc-950 border-yellow-400/20 hover:border-yellow-400 transition-all rounded-none">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-yellow-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h3 className="text-xl font-black mb-3 text-white">{foco.label}</h3>
+                      <p className="text-white/60 leading-relaxed">{foco.description}</p>
                     </div>
-                    <h3 className="text-2xl font-bold">{beneficio.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{beneficio.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button 
-              onClick={scrollToCheckout}
-              className="bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[25px] px-10 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
-            >
-              Quero Treinar com o Método
-            </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Resultados Section */}
-      <section id="resultados" className="py-20 px-4 bg-[#12121a]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Resultados <span className="text-[#D3FF62]">Comprovados</span></h2>
-            <div className="w-20 h-1 bg-[#D3FF62] mx-auto"></div>
-          </div>
+      <section id="resultados" className="py-32 px-4 bg-yellow-400">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-black">
+            RESULTADOS <span className="italic">COMPROVADOS</span>
+          </h2>
+          <p className="text-xl text-black/70 max-w-2xl mx-auto mb-16 font-semibold">
+            95% dos alunos alcançam seus objetivos em até 12 semanas com o método Low Volume Club.
+          </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {resultados.map((resultado, index) => (
-              <Card key={index} className="bg-gradient-to-br from-purple-600/10 to-[#D3FF62]/5 border-purple-500/20 rounded-3xl hover:shadow-2xl transition-all hover:scale-105">
-                <CardContent className="p-8 text-center">
-                  <div className="text-5xl font-bold text-[#D3FF62] mb-3">{resultado.metric}</div>
-                  <div className="text-sm text-gray-300">{resultado.label}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="mt-16 text-center">
-            <Card className="bg-[#1a1a2e] border-[#D3FF62]/30 rounded-3xl">
-              <CardContent className="p-12">
-                <Star className="h-16 w-16 text-[#D3FF62] mx-auto mb-6" />
-                <h3 className="text-3xl font-bold mb-4">Transformação Garantida</h3>
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                  95% dos alunos alcançam seus objetivos em até 12 semanas. Método validado por ciência e resultados reais.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="bg-black p-12 border-4 border-black">
+            <div className="text-8xl font-black text-yellow-400 mb-4">95%</div>
+            <div className="text-2xl font-bold text-white">TAXA DE SUCESSO</div>
           </div>
         </div>
       </section>
 
-      {/* Depoimentos Section */}
-      <section id="depoimentos" className="py-20 px-4">
+      {/* Depoimentos */}
+      <section id="depoimentos" className="py-32 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Que Dizem <span className="text-[#D3FF62]">os Alunos</span></h2>
-            <div className="w-20 h-1 bg-[#D3FF62] mx-auto"></div>
+          <div className="text-center mb-20">
+            <div className="text-yellow-400 font-bold text-sm tracking-widest mb-4">TRANSFORMAÇÕES</div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6">
+              O QUE DIZEM OS <span className="text-yellow-400">ALUNOS</span>
+            </h2>
+            <div className="w-20 h-1 bg-yellow-400 mx-auto"></div>
           </div>
           
-          {/* Formulário para adicionar depoimento */}
-          <Card className="bg-[#1a1a2e] border-purple-500/20 rounded-3xl mb-12">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 text-center">Deixe seu Depoimento</h3>
+          {/* Formulário */}
+          <Card className="bg-zinc-950 border-yellow-400/20 mb-16 rounded-none">
+            <CardContent className="p-10">
+              <h3 className="text-2xl font-black mb-8 text-center text-yellow-400">DEIXE SEU DEPOIMENTO</h3>
               
               {showSuccess && (
-                <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-2xl flex items-center justify-center gap-2 text-green-400">
+                <div className="mb-6 p-4 bg-yellow-400/10 border border-yellow-400 flex items-center justify-center gap-2 text-yellow-400 font-semibold">
                   <CheckCircle className="h-5 w-5" />
                   <span>Depoimento enviado com sucesso!</span>
                 </div>
               )}
               
-              <form onSubmit={handleSubmitTestimonial} className="space-y-4">
-                <div>
-                  <Input
-                    type="text"
-                    placeholder="Seu nome"
-                    value={newTestimonial.name}
-                    onChange={(e) => setNewTestimonial({...newTestimonial, name: e.target.value})}
-                    className="bg-[#0a0a0f] border-purple-500/30 rounded-xl text-white placeholder:text-gray-500 h-12"
-                    required
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Compartilhe sua experiência com o método Low Volume..."
-                    value={newTestimonial.comment}
-                    onChange={(e) => setNewTestimonial({...newTestimonial, comment: e.target.value})}
-                    className="bg-[#0a0a0f] border-purple-500/30 rounded-xl text-white placeholder:text-gray-500 min-h-32"
-                    required
-                  />
-                </div>
+              <form onSubmit={handleSubmitTestimonial} className="space-y-6">
+                <Input
+                  type="text"
+                  placeholder="SEU NOME"
+                  value={newTestimonial.name}
+                  onChange={(e) => setNewTestimonial({...newTestimonial, name: e.target.value})}
+                  className="bg-black border-yellow-400/30 text-white placeholder:text-white/40 h-14 rounded-none font-semibold"
+                  required
+                />
+                <Textarea
+                  placeholder="COMPARTILHE SUA EXPERIÊNCIA COM O LOW VOLUME CLUB..."
+                  value={newTestimonial.comment}
+                  onChange={(e) => setNewTestimonial({...newTestimonial, comment: e.target.value})}
+                  className="bg-black border-yellow-400/30 text-white placeholder:text-white/40 min-h-32 rounded-none font-semibold"
+                  required
+                />
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[25px] py-6 text-lg font-bold"
+                  className="w-full bg-yellow-400 text-black hover:bg-yellow-300 font-black py-6 text-lg rounded-none"
                 >
-                  {isSubmitting ? 'Enviando...' : (
+                  {isSubmitting ? 'ENVIANDO...' : (
                     <>
                       <Send className="mr-2 h-5 w-5" />
-                      Enviar Depoimento
+                      ENVIAR DEPOIMENTO
                     </>
                   )}
                 </Button>
@@ -315,17 +376,17 @@ const Home = () => {
           {/* Lista de depoimentos */}
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="bg-[#1a1a2e] border-purple-500/20 rounded-3xl hover:border-[#D3FF62]/50 transition-all hover:-translate-y-2">
+              <Card key={testimonial.id} className="bg-zinc-950 border-yellow-400/20 hover:border-yellow-400 transition-all rounded-none group hover:-translate-y-2">
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex gap-1 mb-6">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-[#D3FF62] fill-[#D3FF62]" />
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-300 leading-relaxed mb-6">"{testimonial.comment}"</p>
-                  <div className="border-t border-purple-500/20 pt-4">
-                    <div className="font-bold text-[#D3FF62]">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{new Date(testimonial.date).toLocaleDateString('pt-BR')}</div>
+                  <p className="text-white/70 leading-relaxed mb-6 italic">"{testimonial.comment}"</p>
+                  <div className="border-t border-yellow-400/20 pt-4">
+                    <div className="font-bold text-yellow-400 uppercase tracking-wide">{testimonial.name}</div>
+                    <div className="text-xs text-white/40 mt-1">{new Date(testimonial.date).toLocaleDateString('pt-BR')}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -334,74 +395,70 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Checkout CTA Section */}
-      <section id="checkout-section" className="py-20 px-4 bg-gradient-to-br from-purple-900/30 via-[#12121a] to-[#0a0a0f]">
+      {/* Checkout CTA */}
+      <section id="checkout-section" className="py-32 px-4 bg-yellow-400">
         <div className="max-w-4xl mx-auto text-center">
-          <Card className="bg-[#1a1a2e] border-[#D3FF62]/30 rounded-3xl overflow-hidden shadow-2xl">
-            <CardContent className="p-12 md:p-16">
-              <ShoppingCart className="h-20 w-20 text-[#D3FF62] mx-auto mb-8" />
-              
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Pronto para <span className="text-[#D3FF62]">Transformar</span> seu Corpo?
-              </h2>
-              
-              <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Acesse agora o método Low Volume e comece sua jornada para resultados extraordinários.
-              </p>
-              
-              <a href={trainerInfo.checkoutLink} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-[#D3FF62] text-[#0a0a0f] hover:bg-[#b8e055] rounded-[33px] px-12 py-8 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
-                  <ShoppingCart className="mr-3 h-6 w-6" />
-                  Comprar Agora
-                </Button>
-              </a>
-              
-              <div className="mt-8 text-sm text-gray-400">
-                <p>[Link para checkout - Atualizar com link real da Kiwify]</p>
-              </div>
-            </CardContent>
-          </Card>
+          <ShoppingCart className="h-20 w-20 text-black mx-auto mb-8" />
+          
+          <h2 className="text-5xl md:text-6xl font-black mb-8 text-black">
+            PRONTO PARA A<br />
+            <span className="italic">TRANSFORMAÇÃO</span>?
+          </h2>
+          
+          <p className="text-xl text-black/70 mb-12 font-semibold max-w-2xl mx-auto">
+            Entre para o Low Volume Club e comece sua jornada para resultados extraordinários.
+          </p>
+          
+          <a href={clubInfo.checkoutLink} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-black text-yellow-400 hover:bg-zinc-900 font-black px-12 py-8 text-xl rounded-none shadow-2xl hover:scale-105 transition-all">
+              <ShoppingCart className="mr-3 h-6 w-6" />
+              COMPRAR AGORA
+            </Button>
+          </a>
+          
+          <div className="mt-8 text-sm text-black/50 font-semibold">
+            <p>[Atualizar com link do checkout Kiwify]</p>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0a0a0f] border-t border-purple-500/20 py-12 px-4">
+      <footer className="bg-black border-t border-yellow-400/20 py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 mb-8">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <div className="text-2xl font-bold mb-4">
-                <span className="text-[#D3FF62]">ALEX</span> LIPREVI
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Personal trainer profissional especializado em alta performance e método Low Volume.
+              <div className="text-2xl font-black text-yellow-400 mb-4">LOW VOLUME CLUB</div>
+              <div className="text-xs text-white/40 tracking-wider mb-4">BY ALEX LIPREVI</div>
+              <p className="text-white/60 leading-relaxed">
+                Metodologia revolucionária de treinamento focada em resultados reais.
               </p>
             </div>
             
             <div>
-              <h4 className="font-bold mb-4 text-lg">Contato</h4>
-              <div className="space-y-2 text-gray-400">
+              <h4 className="font-black mb-6 text-lg text-yellow-400">CONTATO</h4>
+              <div className="space-y-2 text-white/60 font-semibold">
                 <p>[email@exemplo.com]</p>
-                <p>[Whatsapp: +55 11 99999-9999]</p>
+                <p>[WhatsApp: +55 11 99999-9999]</p>
                 <p>[Localização: São Paulo, SP]</p>
               </div>
             </div>
             
             <div>
-              <h4 className="font-bold mb-4 text-lg">Redes Sociais</h4>
+              <h4 className="font-black mb-6 text-lg text-yellow-400">REDES SOCIAIS</h4>
               <div className="flex gap-4">
                 <a 
-                  href={trainerInfo.instagram} 
+                  href={clubInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center hover:bg-[#D3FF62]/20 transition-colors"
+                  className="w-12 h-12 bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all group"
                 >
                   <Instagram className="h-6 w-6" />
                 </a>
                 <a 
-                  href={trainerInfo.whatsapp} 
+                  href={clubInfo.whatsapp} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center hover:bg-[#D3FF62]/20 transition-colors"
+                  className="w-12 h-12 bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all group"
                 >
                   <MessageCircle className="h-6 w-6" />
                 </a>
@@ -409,8 +466,8 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="border-t border-purple-500/20 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2024 Alex Liprevi. Todos os direitos reservados.</p>
+          <div className="border-t border-yellow-400/20 pt-8 text-center text-white/40 text-sm font-semibold">
+            <p>&copy; 2024 Low Volume Club by Alex Liprevi. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
