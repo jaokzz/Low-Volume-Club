@@ -428,7 +428,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
               <div className="text-2xl font-black text-yellow-400 mb-4">LOW VOLUME CLUB</div>
-              <div className="text-xs text-white/40 tracking-wider mb-4">BY ALEX LIPREVI</div>
+              <div className="text-xs text-white/40 tracking-wider mb-4">BY ALEX LIPRERI</div>
               <p className="text-white/60 leading-relaxed">
                 Metodologia revolucionária de treinamento focada em resultados reais.
               </p>
