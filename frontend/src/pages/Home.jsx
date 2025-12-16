@@ -467,7 +467,7 @@ const Home = () => {
           </div>
           
           <div className="border-t border-yellow-400/20 pt-8 text-center text-white/40 text-sm font-semibold">
-            <p>&copy; 2024 Low Volume Club by Alex Liprevi. Todos os direitos reservados.</p>
+            <p>&copy; 2024 Low Volume Club by Alex Lipreri. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
