@@ -206,11 +206,12 @@ const Home = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-yellow-400/10 to-transparent border border-yellow-400/20 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-9xl font-black text-yellow-400/20">LV</div>
-                  <div className="text-sm text-white/40 mt-4">[Espaço para imagem/vídeo do método]</div>
-                </div>
+              <div className="aspect-square border border-yellow-400/20 overflow-hidden">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_fitliprevi/artifacts/qbnxi2o5_-mike-mentzer.jpg" 
+                  alt="Low Volume Method"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                />
               </div>
             </div>
           </div>
