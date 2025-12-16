@@ -438,8 +438,7 @@ const Home = () => {
               <h4 className="font-black mb-6 text-lg text-yellow-400">CONTATO</h4>
               <div className="space-y-2 text-white/60 font-semibold">
                 <p>[email@exemplo.com]</p>
-                <p>[WhatsApp: +55 11 99999-9999]</p>
-                <p>[Localização: São Paulo, SP]</p>
+                <p>[WhatsApp: +55 49 91353-3593]</p>
               </div>
             </div>
             
