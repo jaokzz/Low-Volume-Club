@@ -71,7 +71,7 @@ const Home = () => {
               <div className="text-2xl font-black tracking-tighter text-yellow-400">
                 LOW VOLUME CLUB
               </div>
-              <div className="text-xs text-white/60 tracking-wider">BY ALEX LIPREVI</div>
+              <div className="text-xs text-white/60 tracking-wider">BY ALEX LIPRERI</div>
             </div>
             
             <div className="hidden md:flex items-center gap-8">
