@@ -56,8 +56,10 @@
   },
   "scripts": {
     "start": "craco start",
+    "dev": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "serve": "npm run start"
   },
   "browserslist": {
     "production": [
