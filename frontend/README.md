@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+# LOW VOLUME CLUB - Alex Lipreri
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Site institucional moderno e responsivo para o personal trainer Alex Lipreri, apresentando o método revolucionário Low Volume.
 
-## Available Scripts
+## 🎯 Sobre o Projeto
 
-In the project directory, you can run:
+Website profissional com design minimalista dark (Amarelo + Preto + Branco) focado em conversão e apresentação do método de treinamento Low Volume.
 
-### `npm start`
+### ✨ Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ Hero section impactante com tipografia moderna
+- ✅ Apresentação completa do método Low Volume
+- ✅ Seções de Princípios e Fundamentos
+- ✅ Sistema de depoimentos (mock - aguardando backend)
+- ✅ Links para WhatsApp e Instagram
+- ✅ CTA para checkout (Kiwify)
+- ✅ Design totalmente responsivo
+- ✅ Animações CSS dinâmicas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tecnologias Utilizadas
 
-### `npm test`
+- **React 19** - Biblioteca JavaScript para UI
+- **React Router** - Navegação SPA
+- **Tailwind CSS** - Framework CSS utility-first
+- **Shadcn/UI** - Componentes UI modernos
+- **Lucide React** - Ícones
+- **Axios** - Cliente HTTP
+- **CRACO** - Configuração do Create React App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Como Executar Localmente
 
-### `npm run build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Certifique-se de ter instalado:
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn** (recomendado: yarn)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Passo 1: Clonar/Baixar o Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Se estiver usando Git
+git clone <url-do-repositorio>
+cd frontend
 
-### `npm run eject`
+# Ou apenas extraia os arquivos baixados e navegue até a pasta
+cd frontend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Passo 2: Instalar Dependências
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Usando Yarn (recomendado):**
+```bash
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Ou usando npm:**
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Passo 3: Configurar Variáveis de Ambiente
 
-## Learn More
+1. Copie o arquivo `.env.example` para `.env`:
+```bash
+cp .env.example .env
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Edite o arquivo `.env` se necessário (opcional para desenvolvimento local)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Passo 4: Iniciar o Servidor de Desenvolvimento
 
-### Code Splitting
+**Usando Yarn:**
+```bash
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Ou usando npm:**
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
+O site abrirá automaticamente em: **http://localhost:3000**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📝 Scripts Disponíveis
 
-### Making a Progressive Web App
+### `yarn start` ou `npm start`
+Inicia o servidor de desenvolvimento.
+Abrirá automaticamente em [http://localhost:3000](http://localhost:3000)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `yarn build` ou `npm run build`
+Cria uma build otimizada para produção na pasta `build/`.
 
-### Advanced Configuration
+### `yarn test` ou `npm test`
+Executa os testes no modo interativo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📂 Estrutura de Pastas
 
-### Deployment
+```
+frontend/
+├── public/              # Arquivos estáticos
+├── src/
+│   ├── components/
+│   │   └── ui/          # Componentes Shadcn/UI
+│   ├── pages/
+│   │   ├── Home.jsx     # Página principal
+│   │   └── animations.css
+│   ├── mock.js          # Dados mockados
+│   ├── App.js           # Componente raiz
+│   ├── App.css          # Estilos globais
+│   ├── index.css        # Tailwind e estilos base
+│   └── index.js         # Entry point
+├── .env                 # Variáveis de ambiente
+├── package.json
+├── tailwind.config.js
+└── craco.config.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## ⚙️ Configurações
 
-### `npm run build` fails to minify
+### Atualizar Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Edite o arquivo `src/mock.js` para atualizar:
+
+```javascript
+export const clubInfo = {
+  whatsapp: "https://wa.me/554991353593",
+  instagram: "https://www.instagram.com/alex_lipreri/",
+  checkoutLink: "https://checkout.kiwify.com.br/"
+};
+```
+
+### Personalizar Conteúdo
+
+Todos os textos e dados estão centralizados no arquivo `src/mock.js`:
+- Informações do clube
+- Princípios do método
+- Foco técnico
+- Resultados
+- Depoimentos mockados
+
+## 📱 Responsividade
+
+O site é totalmente responsivo e otimizado para:
+- 📱 Mobile (320px+)
+- 📲 Tablet (768px+)
+- 💻 Desktop (1024px+)
+- 🖥️ Large Desktop (1440px+)
+
+## 🎨 Paleta de Cores
+
+- **Amarelo Principal**: `#FACC15` (Yellow-400)
+- **Preto**: `#000000`
+- **Branco**: `#FFFFFF`
+- **Cinza Escuro**: `#18181B` (Zinc-900/950)
+
+## 🔧 Próximos Passos (Backend)
+
+Para implementar persistência dos depoimentos:
+1. Configurar backend FastAPI
+2. Conectar MongoDB
+3. Criar endpoints de API
+4. Integrar frontend com backend
+
+## 📝 Licença
+
+© 2024 Low Volume Club by Alex Lipreri. Todos os direitos reservados.
+
+## 📞 Suporte
+
+Para dúvidas ou suporte:
+- WhatsApp: +55 49 91353-3593
+- Instagram: [@alex_lipreri](https://www.instagram.com/alex_lipreri/)
+
+---
+
+**Desenvolvido com ❤️ usando React + Tailwind CSS**
