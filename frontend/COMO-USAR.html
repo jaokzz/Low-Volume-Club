@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Usar - LOW VOLUME CLUB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #000;
+            border: 2px solid #FACC15;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #FACC15;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            color: #FACC15;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        h3 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .step {
+            background: #1a1a1a;
+            border-left: 4px solid #FACC15;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #FACC15;
+            color: #000;
+            font-weight: 900;
+            padding: 5px 15px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        code {
+            background: #000;
+            border: 1px solid #333;
+            padding: 3px 8px;
+            color: #FACC15;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .code-block {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            color: #FACC15;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .warning {
+            background: #2a2a00;
+            border-left: 4px solid #FACC15;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .success {
+            background: #002a00;
+            border-left: 4px solid #00ff00;
+            padding: 15px;
+            margin: 20px 0;
+            color: #00ff00;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+        
+        a {
+            color: #FACC15;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            background: #FACC15;
+            color: #000;
+            padding: 2px 6px;
+            font-weight: 700;
+        }
+        
+        .contact {
+            background: #1a1a1a;
+            border: 2px solid #FACC15;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 LOW VOLUME CLUB</h1>
+        <div class="subtitle">Guia de Instalação e Uso</div>
+        
+        <div class="warning">
+            <strong>⚠️ IMPORTANTE:</strong> Este arquivo é apenas um guia visual. 
+            Para executar os comandos, use o Terminal/Prompt de Comando do seu sistema.
+        </div>
+        
+        <h2>📋 O Que Você Precisa Antes de Começar</h2>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Instalar Node.js</h3>
+            <p>Baixe e instale o Node.js (versão 18 ou superior):</p>
+            <p>🔗 <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></p>
+            <p style="margin-top: 10px;">Após instalar, abra o terminal e verifique:</p>
+            <div class="code-block">node --version</div>
+            <p>Deve mostrar algo como: <code>v18.0.0</code> ou superior</p>
+        </div>
+        
+        <h2>🎯 Como Executar o Site</h2>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Abrir o Terminal na Pasta Correta</h3>
+            <p><strong>Windows:</strong></p>
+            <ul>
+                <li>Abra a pasta <code>frontend</code> no Explorador de Arquivos</li>
+                <li>Digite <code>cmd</code> na barra de endereços e pressione Enter</li>
+            </ul>
+            <p><strong>Mac/Linux:</strong></p>
+            <ul>
+                <li>Abra o Terminal</li>
+                <li>Use: <code>cd caminho/para/frontend</code></li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Instalar Dependências</h3>
+            <p>No terminal, execute UM dos comandos:</p>
+            
+            <p><strong>Opção A (Recomendado) - Usando Yarn:</strong></p>
+            <div class="code-block">yarn install</div>
+            
+            <p><strong>Opção B - Usando npm:</strong></p>
+            <div class="code-block">npm install</div>
+            
+            <div class="warning">
+                ⏳ <strong>Aguarde:</strong> Este processo pode levar de 2 a 5 minutos. 
+                Vai baixar todas as bibliotecas necessárias.
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Iniciar o Servidor</h3>
+            <p>Após a instalação, execute:</p>
+            
+            <p><strong>Com Yarn:</strong></p>
+            <div class="code-block">yarn start</div>
+            
+            <p><strong>Ou com npm:</strong></p>
+            <div class="code-block">npm start</div>
+        </div>
+        
+        <div class="success">
+            <h3>✅ SUCESSO!</h3>
+            <p>O navegador abrirá automaticamente em:</p>
+            <div class="code-block" style="background: #003300; border-color: #00ff00;">
+                http://localhost:3000
+            </div>
+            <p>Se não abrir automaticamente, copie e cole este link no navegador.</p>
+        </div>
+        
+        <h2>🔧 Comandos Úteis</h2>
+        
+        <div class="step">
+            <h3>Parar o Servidor</h3>
+            <p>No terminal onde está rodando, pressione:</p>
+            <div class="code-block">Ctrl + C</div>
+        </div>
+        
+        <div class="step">
+            <h3>Verificar se Está Tudo OK</h3>
+            <p>Antes de iniciar, você pode rodar:</p>
+            <div class="code-block">node verificar-instalacao.js</div>
+            <p>Este script verifica se todos os arquivos estão no lugar certo.</p>
+        </div>
+        
+        <h2>❓ Problemas Comuns</h2>
+        
+        <div class="step">
+            <h3>❌ Erro: "command not found: node"</h3>
+            <p><strong>Solução:</strong> Instale o Node.js de <a href="https://nodejs.org/" target="_blank">nodejs.org</a></p>
+        </div>
+        
+        <div class="step">
+            <h3>❌ Erro: "Cannot find module"</h3>
+            <p><strong>Solução:</strong> Execute novamente o comando de instalação:</p>
+            <div class="code-block">yarn install</div>
+            <p>ou</p>
+            <div class="code-block">npm install</div>
+        </div>
+        
+        <div class="step">
+            <h3>❌ Porta 3000 já está em uso</h3>
+            <p><strong>Solução:</strong> O terminal vai perguntar se quer usar outra porta. Digite <code>y</code> e pressione Enter.</p>
+        </div>
+        
+        <h2>🎨 Personalizar o Site</h2>
+        
+        <div class="step">
+            <h3>Atualizar Links e Contatos</h3>
+            <p>Edite o arquivo: <code>src/mock.js</code></p>
+            <p>Procure por:</p>
+            <div class="code-block">
+export const clubInfo = {
+  whatsapp: "seu-numero-aqui",
+  instagram: "seu-instagram-aqui",
+  checkoutLink: "seu-link-kiwify-aqui"
+};
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Modificar Textos</h3>
+            <p>Todos os textos estão em:</p>
+            <ul>
+                <li><code>src/mock.js</code> - Dados e informações</li>
+                <li><code>src/pages/Home.jsx</code> - Estrutura da página</li>
+            </ul>
+        </div>
+        
+        <h2>📱 Ver no Celular</h2>
+        
+        <div class="step">
+            <p>Quando o site estiver rodando, olhe no terminal a linha:</p>
+            <div class="code-block">On Your Network:  http://192.168.x.x:3000</div>
+            <p>Acesse essa URL no navegador do seu celular (mesma rede Wi-Fi)</p>
+        </div>
+        
+        <div class="contact">
+            <h2 style="margin-top: 0;">📞 Precisa de Ajuda?</h2>
+            <p style="margin: 20px 0;">
+                <strong>WhatsApp:</strong> +55 49 91353-3593<br>
+                <strong>Instagram:</strong> <a href="https://www.instagram.com/alex_lipreri/" target="_blank">@alex_lipreri</a>
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; color: #666; font-size: 0.9em;">
+            <p>© 2024 Low Volume Club by Alex Lipreri</p>
+            <p style="margin-top: 10px;">Desenvolvido com ❤️ usando React + Tailwind CSS</p>
+        </div>
+    </div>
+</body>
+</html>
