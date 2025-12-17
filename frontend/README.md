@@ -32,54 +32,37 @@ Website profissional com design minimalista dark (Amarelo + Preto + Branco) foca
 ### Pré-requisitos
 
 Certifique-se de ter instalado:
-- **Node.js** (versão 18 ou superior)
-- **npm** ou **yarn** (recomendado: yarn)
+- **Node.js** (versão 18 ou superior) - [Download aqui](https://nodejs.org/)
+- **npm** (vem com Node.js) ou **yarn**
 
-### Passo 1: Clonar/Baixar o Projeto
+### ⚡ Instalação Rápida (3 passos)
 
 ```bash
-# Se estiver usando Git
-git clone <url-do-repositorio>
+# 1. Entre na pasta do projeto
 cd frontend
 
-# Ou apenas extraia os arquivos baixados e navegue até a pasta
-cd frontend
-```
-
-### Passo 2: Instalar Dependências
-
-**Usando Yarn (recomendado):**
-```bash
+# 2. Instale as dependências
 yarn install
-```
+# ou: npm install
 
-**Ou usando npm:**
-```bash
-npm install
-```
-
-### Passo 3: Configurar Variáveis de Ambiente
-
-1. Copie o arquivo `.env.example` para `.env`:
-```bash
-cp .env.example .env
-```
-
-2. Edite o arquivo `.env` se necessário (opcional para desenvolvimento local)
-
-### Passo 4: Iniciar o Servidor de Desenvolvimento
-
-**Usando Yarn:**
-```bash
+# 3. Inicie o servidor
 yarn start
+# ou: npm start
 ```
 
-**Ou usando npm:**
+✅ **Pronto!** O site abrirá automaticamente em: **http://localhost:3000**
+
+### 🔍 Verificar Instalação
+
+Antes de iniciar, você pode verificar se está tudo OK:
+
 ```bash
-npm start
+node verificar-instalacao.js
 ```
 
-O site abrirá automaticamente em: **http://localhost:3000**
+### 📖 Guia Completo
+
+Para instruções detalhadas passo a passo, consulte: [INSTALACAO.md](./INSTALACAO.md)
 
 ## 📝 Scripts Disponíveis
 
